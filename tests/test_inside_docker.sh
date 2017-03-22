@@ -1,6 +1,7 @@
 #!/bin/sh -xe
 
 OS_VERSION=$1
+SPEC="blahp/config/blahp.spec"
 
 ls -l /home
 
@@ -22,10 +23,9 @@ cat >> /etc/rpm/macros.dist << EOF
 %osg 1
 EOF
 
-spec=blahp/config/blahp.spec
-yum-builddep -y $spec
-cp $spec /tmp/rpmbuild/SPECS
-package_version=`awk '/Version/ {print $2}' $spec`
+yum-builddep -y $SPEC
+cp $SPEC /tmp/rpmbuild/SPECS
+package_version=`awk '/Version/ {print $2}' $SPEC`
 pushd blahp
 git archive --format=tar HEAD  | gzip >/tmp/rpmbuild/SOURCES/blahp-${package_version}.tar.gz
 popd
@@ -73,27 +73,27 @@ cp /etc/condor/config.d/99-local.conf /etc/condor-ce/config.d/99-local.conf
 # Reduce the trace timeouts
 export _condor_CONDOR_CE_TRACE_ATTEMPTS=60
 
+# Enable PBS/Slurm BLAH debugging
+mkdir /var/tmp/{qstat,slurm}_cache_vdttest/
+touch /var/tmp/qstat_cache_vdttest/pbs_status.debug
+touch /var/tmp/slurm_cache_vdttest/slurm_status.debug
+
 # Ok, do actual testing
 set +e # don't exit immediately if osg-test fails
 echo "------------ OSG Test --------------"
-osg-test -vad --hostcert --no-cleanup
+osg-test -mvad --hostcert --no-cleanup
 test_exit=$?
 set -e
 
 # Some simple debug files for failures.
 openssl x509 -in /etc/grid-security/hostcert.pem -noout -text
 echo "------------ CE Logs --------------"
-cat /var/log/condor-ce/MasterLog
-cat /var/log/condor-ce/CollectorLog
-cat /var/log/condor-ce/SchedLog
-cat /var/log/condor-ce/JobRouterLog
-echo "------------ HTCondor Logs --------------"
-cat /var/log/condor/MasterLog
-cat /var/log/condor/CollectorLog
-cat /var/log/condor/SchedLog
-condor_config_val -dump
+cat /var/log/condor-ce/GridmanagerLog.vdttest
+echo "------------ BLAH Logs --------------"
+cat /var/tmp/qstat_cache_vdttest/pbs_status.log
+cat /var/tmp/slurm_cache_vdttest/slurm_status.log
 
 # Verify preun/postun in the spec file
-yum remove -y 'htcondor-ce*'
+yum remove -y 'blahp'
 
 exit $test_exit
