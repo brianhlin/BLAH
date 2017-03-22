@@ -41,7 +41,7 @@ ls -lR /tmp/rpmbuild
 
 # Install batch systems that will exercise the blahp in osg-test
 yum install -y osg-ce-condor
-yum install -y slurm slurm-munge slurm-perlapi slurm-plugins slurm-sql slurm-slurmdbd --enablerepo=osg-contrib
+yum install -y slurm slurm-munge slurm-perlapi slurm-plugins slurm-sql slurm-slurmdbd mysql-server --enablerepo=osg-contrib
 yum install -y torque-server torque-mom torque-client torque-scheduler
 
 # Source repo version
@@ -88,7 +88,7 @@ set -e
 # Some simple debug files for failures.
 openssl x509 -in /etc/grid-security/hostcert.pem -noout -text
 echo "------------ CE Logs --------------"
-cat /var/log/condor-ce/GridmanagerLog.vdttest
+ls /var/log/condor-ce/
 echo "------------ BLAH Logs --------------"
 cat /var/tmp/qstat_cache_vdttest/pbs_status.log
 cat /var/tmp/slurm_cache_vdttest/slurm_status.log
