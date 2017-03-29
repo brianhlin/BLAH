@@ -94,18 +94,18 @@ cat /var/log/condor-ce/JobRouterLog
 echo "------------ Condor Logs --------------"
 # Verify preun/postun in the spec file
 cat /var/log/condor/GridmanagerLog*
+echo "------------ Munge Logs --------------"
+ls -l /var/log
+ls -l /var/log/munge/
 echo "------------ Slurm Logs --------------"
 ls -l /var/log/slurm/
 cat /var/log/slurm/slurm.log
 cat /var/log/slurm/slurmctld.log
 echo "------------ Torque Logs --------------"
 ls -l /var/log/torque/
-cat /var/log/torque/mom_logs
-cat /var/log/torque/sched_logs
-cat /var/log/torque/server_logs
-echo "------------ Munge Logs --------------"
-ls -l /var/log
-ls -l /var/log/munge/
+cat /var/log/torque/mom_logs/*
+cat /var/log/torque/sched_logs/*
+cat /var/log/torque/server_logs/*
 
 yum remove -y 'blahp'
 
