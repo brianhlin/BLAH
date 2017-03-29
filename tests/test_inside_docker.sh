@@ -57,7 +57,7 @@ make install
 popd
 
 # HTCondor really, really wants a domain name.  Fake one.
-sed /etc/hosts -e "s/`hostname`/travisci-`hostname`.unl.edu `hostname`/" > /etc/hosts.new
+sed /etc/hosts -e "s/`hostname`/travisci-`hostname`.unl.edu travisci-`hostname`/" > /etc/hosts.new
 /bin/cp -f /etc/hosts.new /etc/hosts
 
 # Bind on the right interface and skip hostname checks.
