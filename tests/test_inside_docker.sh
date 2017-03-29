@@ -97,15 +97,16 @@ cat /var/log/condor/GridmanagerLog*
 echo "------------ Munge Logs --------------"
 ls -l /var/log
 cat /var/log/munge/munged.log
-echo "------------ Slurm Logs --------------"
-ls -l /var/log/slurm/
-cat /var/log/slurm/slurm.log
-cat /var/log/slurm/slurmctld.log
 echo "------------ Torque Logs --------------"
 ls -l /var/log/torque/
 cat /var/log/torque/mom_logs/*
 cat /var/log/torque/sched_logs/*
 cat /var/log/torque/server_logs/*
+echo "------------ Slurm Logs --------------"
+ls -l /var/log/slurm/
+cat /var/log/slurm/slurmctld.log
+cat /var/log/slurm/slurmdbd.log
+cat /var/log/slurm/slurm.log
 
 yum remove -y 'blahp'
 
