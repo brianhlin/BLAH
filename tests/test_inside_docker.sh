@@ -96,5 +96,8 @@ echo "------------ Condor Logs --------------"
 ls -l /var/log/condor/
 # Verify preun/postun in the spec file
 yum remove -y 'blahp'
+cat /var/log/condor/MasterLog
+cat /var/log/condor/SchedLog
+cat /var/log/condor/GridmanagerLog*
 
 exit $test_exit
