@@ -90,20 +90,23 @@ set -e
 # Some simple debug files for failures.
 openssl x509 -in /etc/grid-security/hostcert.pem -noout -text
 echo "------------ CE Logs --------------"
-ls -l /var/log/condor-ce/
-cat /var/log/condor-ce/MasterLog
-cat /var/log/condor-ce/SchedLog
 cat /var/log/condor-ce/JobRouterLog
 echo "------------ Condor Logs --------------"
-ls -l /var/log/condor/
 # Verify preun/postun in the spec file
-yum remove -y 'blahp'
-cat /var/log/condor/MasterLog
-cat /var/log/condor/SchedLog
 cat /var/log/condor/GridmanagerLog*
 echo "------------ Slurm Logs --------------"
 ls -l /var/log/slurm/
+cat /var/log/slurm/slurm.log
+cat /var/log/slurm/slurmctld.log
 echo "------------ Torque Logs --------------"
 ls -l /var/log/torque/
+cat /var/log/torque/mom_logs
+cat /var/log/torque/sched_logs
+cat /var/log/torque/server_logs
+echo "------------ Munge Logs --------------"
+ls -l /var/log
+ls -l /var/log/munge/
+
+yum remove -y 'blahp'
 
 exit $test_exit
