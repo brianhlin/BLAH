@@ -88,11 +88,12 @@ set -e
 # Some simple debug files for failures.
 openssl x509 -in /etc/grid-security/hostcert.pem -noout -text
 echo "------------ CE Logs --------------"
-ls /var/log/condor-ce/
+ls -l /var/log/condor-ce/
 cat /var/log/condor-ce/MasterLog
 cat /var/log/condor-ce/SchedLog
 cat /var/log/condor-ce/JobRouterLog
-
+echo "------------ Condor Logs --------------"
+ls -l /var/log/condor/
 # Verify preun/postun in the spec file
 yum remove -y 'blahp'
 
