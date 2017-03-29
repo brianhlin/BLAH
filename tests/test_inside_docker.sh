@@ -96,7 +96,7 @@ echo "------------ Condor Logs --------------"
 cat /var/log/condor/GridmanagerLog*
 echo "------------ Munge Logs --------------"
 ls -l /var/log
-ls -l /var/log/munge/
+ls -l /var/log/munge/munged.log
 echo "------------ Slurm Logs --------------"
 ls -l /var/log/slurm/
 cat /var/log/slurm/slurm.log
