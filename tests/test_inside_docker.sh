@@ -67,11 +67,13 @@ GSI_SKIP_HOST_CHECK=true
 SCHEDD_DEBUG=\$(SCHEDD_DEBUG) D_FULLDEBUG
 SCHEDD_INTERVAL=1
 SCHEDD_MIN_INTERVAL=1
+JOB_ROUTER_POLLING_PERIOD=1
+GRIDMANAGER_JOB_PROBE_INTERVAL=1
 EOF
 cp /etc/condor/config.d/99-local.conf /etc/condor-ce/config.d/99-local.conf
 
 # Reduce the trace timeouts
-export _condor_CONDOR_CE_TRACE_ATTEMPTS=60
+export _condor_CONDOR_CE_TRACE_ATTEMPTS=120
 
 # Enable PBS/Slurm BLAH debugging
 mkdir /var/tmp/{qstat,slurm}_cache_vdttest/
