@@ -41,7 +41,7 @@ ls -lR /tmp/rpmbuild
 
 # Install batch systems that will exercise the blahp in osg-test
 yum install -y osg-ce-condor
-yum install -y slurm slurm-munge slurm-perlapi slurm-plugins slurm-sql slurm-slurmdbd mysql-server --enablerepo=osg-contrib
+yum install -y slurm slurm-munge slurm-perlapi slurm-plugins slurm-sql slurm-slurmdbd mariadb-server mysql-server --enablerepo=osg-contrib
 yum install -y torque-server torque-mom torque-client torque-scheduler
 
 # Source repo version
