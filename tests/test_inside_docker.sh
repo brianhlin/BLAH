@@ -101,5 +101,9 @@ yum remove -y 'blahp'
 cat /var/log/condor/MasterLog
 cat /var/log/condor/SchedLog
 cat /var/log/condor/GridmanagerLog*
+echo "------------ Slurm Logs --------------"
+ls -l /var/log/slurm/
+echo "------------ Torque Logs --------------"
+ls -l /var/log/torque/
 
 exit $test_exit
