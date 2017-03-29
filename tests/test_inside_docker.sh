@@ -89,9 +89,9 @@ set -e
 openssl x509 -in /etc/grid-security/hostcert.pem -noout -text
 echo "------------ CE Logs --------------"
 ls /var/log/condor-ce/
-echo "------------ BLAH Logs --------------"
-cat /var/tmp/qstat_cache_vdttest/pbs_status.log
-cat /var/tmp/slurm_cache_vdttest/slurm_status.log
+cat /var/log/condor-ce/MasterLog
+cat /var/log/condor-ce/SchedLog
+cat /var/log/condor-ce/JobRouterLog
 
 # Verify preun/postun in the spec file
 yum remove -y 'blahp'
