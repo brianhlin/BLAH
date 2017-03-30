@@ -59,9 +59,9 @@ popd
 # HTCondor really, really wants a domain name.  Fake one.
 # PBS/Slurm really, really don't like hostnames starting with a digit
 sed /etc/hosts -e "s/`hostname`/travisci-`hostname`.unl.edu `hostname`/" > /etc/hosts.new
+/bin/cp -f /etc/hosts.new /etc/hosts
 hostname
 hostname -s
-/bin/cp -f /etc/hosts.new /etc/hosts
 
 # Bind on the right interface and skip hostname checks.
 cat << EOF > /etc/condor/config.d/99-local.conf
