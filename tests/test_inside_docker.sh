@@ -62,6 +62,7 @@ sed /etc/hosts -e "s/`hostname`/travisci-`hostname`.unl.edu `hostname`/" > /etc/
 /bin/cp -f /etc/hosts.new /etc/hosts
 hostname
 hostname -s
+python -c 'import socket; print socket.gethostbyaddr(socket.gethostname())[0]; print socket.gethostname()'
 
 # Bind on the right interface and skip hostname checks.
 cat << EOF > /etc/condor/config.d/99-local.conf
