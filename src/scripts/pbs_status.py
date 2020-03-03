@@ -386,7 +386,7 @@ def get_pbs_location(program):
         return _qstat_location_cache
 
     pbs_bindir = config.get('pbs_binpath')
-    pbs_bin_location = o.path.join(pbs_binpath, 'qstat')
+    pbs_bin_location = o.path.join(pbs_binpath, program)
 
     if not os.path.exists(pbs_bin_location):
         raise Exception("Could not find %s in pbs_binpath=%s" % (program, output))
