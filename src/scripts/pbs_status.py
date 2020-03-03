@@ -231,7 +231,7 @@ def qstat(jobid=""):
 
     Returns a python dictionary with the job info.
     """
-    qstat_bin = get_qstat_location()
+    qstat_bin = get_pbs_location("qstat")
 
     starttime = time.time()
     log("Starting qstat.")
@@ -377,23 +377,21 @@ def get_finished_job_stats(jobid):
     
 
 _qstat_location_cache = None
-def get_qstat_location():
+def get_pbs_location(program):
     """
-    Locate the copy of qstat the blahp configuration wants to use.
+    Locate the copy of the PBS bin the that the blahp configuration wants to use.
     """
     global _qstat_location_cache
     if _qstat_location_cache != None:
         return _qstat_location_cache
 
-    cmd = 'echo "%s/%s"' % (config.get('pbs_binpath'), 'qstat')
+    pbs_bindir = config.get('pbs_binpath')
+    pbs_bin_location = o.path.join(pbs_binpath, 'qstat')
 
-    child_stdout = os.popen(cmd)
-    output = child_stdout.read().split("\n")[0].strip()
-    if child_stdout.close():
-        raise Exception("Unable to determine qstat location: %s" % output)
-
-    _qstat_location_cache = output
-    return output
+    if not os.path.exists(pbs_bin_location):
+        raise Exception("Could not find %s in pbs_binpath=%s" % (program, output))
+    _qstat_location_cache = pbs_bindir
+    return pbs_bin_location
 
 job_id_re = re.compile("\s*Job Id:\s([0-9]+)([\w\-\/.]*)")
 exec_host_re = re.compile("\s*exec_host = ([\w\-\/.]+)")
