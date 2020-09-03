@@ -123,7 +123,7 @@ install(TARGETS
     BLClient BLParserLSF BLParserPBS BUpdaterCondor BNotifier 
     BUpdaterLSF BUpdaterPBS BUpdaterSGE
     blparser_master
-    RUNTIME DESTINATION libexec)
+    RUNTIME DESTINATION libexec/blahp)
 
 set(blah_scripts
     scripts/blah_load_config.sh scripts/blah_common_submit_functions.sh
@@ -152,7 +152,7 @@ install(FILES
     PERMISSIONS OWNER_WRITE OWNER_READ OWNER_EXECUTE
                 GROUP_READ GROUP_EXECUTE
                 WORLD_READ WORLD_EXECUTE
-    DESTINATION libexec)
+    DESTINATION libexec/blahp)
 
 if (${GLOBUS_COMMON_FOUND} AND ${GLOBUS_IO_FOUND})
 install(TARGETS BPRclient BPRserver RUNTIME DESTINATION libexec)

@@ -43,7 +43,7 @@ if [ "x$BLAHPD_LOCATION" != "x" -a -d "${BLAHPD_LOCATION}/libexec" ]; then
 elif [ -d "${GLITE_LOCATION:-/opt/glite}/libexec" ]; then
   blah_libexec_directory="${GLITE_LOCATION:-/opt/glite}/libexec"
 else
-  blah_libexec_directory="/usr/libexec"
+  blah_libexec_directory="/usr/libexec/blahp"
 fi
 
 # Let blah_bin_directory be overridden in the config file.

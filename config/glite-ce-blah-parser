@@ -24,8 +24,8 @@
 # Source function library
 . /etc/rc.d/init.d/functions
 
-if [ -e "/usr/libexec/grid-env.sh" ]; then
- . /usr/libexec/grid-env.sh
+if [ -e "/usr/libexec/blahp/grid-env.sh" ]; then
+ . /usr/libexec/blahp/grid-env.sh
 fi
 
 if [ -e "${LSF_BASE_DIR}/conf/profile.lsf" ]; then

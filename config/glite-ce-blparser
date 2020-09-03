@@ -24,8 +24,8 @@
 # Source function library
 . /etc/rc.d/init.d/functions
 
-if [ -e "/usr/libexec/grid-env.sh" ]; then
- . /usr/libexec/grid-env.sh
+if [ -e "/usr/libexec/blahp/grid-env.sh" ]; then
+ . /usr/libexec/blahp/grid-env.sh
 fi
 
 if [ -e "${LSF_BASE_DIR}/conf/profile.lsf" ]; then
@@ -39,7 +39,7 @@ else
     blparser_bin_directory="${GLITE_LOCATION}/bin"
   else
 #   Default value when everything else fails.
-    blparser_bin_directory="/usr/libexec"
+    blparser_bin_directory="/usr/libexec/blahp"
   fi
 fi
 
