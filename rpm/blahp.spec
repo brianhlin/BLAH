@@ -22,10 +22,6 @@ BuildRequires:  gcc-c++
 BuildRequires:  libtool
 BuildRequires:  make
 BuildRequires:  condor-classads-devel
-BuildRequires:  globus-gss-assist-devel
-BuildRequires:  globus-gsi-credential-devel
-BuildRequires:  globus-gsi-proxy-core-devel
-BuildRequires:  globus-gsi-cert-utils-devel
 BuildRequires:  docbook-style-xsl, libxslt
 
 %description
