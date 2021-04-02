@@ -9,6 +9,7 @@ BUILD_ENV=$1
 mkdir -p /var/run/lock
 
 RPM_LOCATION=/tmp/rpmbuild/RPMS/noarch
+ls -l /tmp/rpmbuild/RPMS
 [[ $BUILD_ENV == osg ]] && extra_repos='--enablerepo=osg-upcoming-development'
 
 package_version=`grep Version htcondor-ce/rpm/htcondor-ce.spec | awk '{print $2}'`
