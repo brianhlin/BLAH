@@ -26,6 +26,7 @@ GSI_SKIP_HOST_CHECK=true
 ALL_DEBUG=\$(ALL_DEBUG) D_FULLDEBUG D_CAT
 SCHEDD_INTERVAL=1
 SCHEDD_MIN_INTERVAL=1
+GRIDMANAGER_JOB_PROBE_INTERVAL=1
 EOF
 cp /etc/condor/config.d/99-local.conf /etc/condor-ce/config.d/99-local.conf
 
