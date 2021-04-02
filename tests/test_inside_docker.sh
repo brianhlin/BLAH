@@ -35,7 +35,7 @@ export _condor_CONDOR_CE_TRACE_ATTEMPTS=60
 
 # Enable PBS/Slurm BLAH debugging
 mkdir /var/tmp/{qstat,slurm}_cache_vdttest/
-chmod 777 /var/tmp/{qstat,slurm}_cache_vdttest/
+chown vdttest: /var/tmp/{qstat,slurm}_cache_vdttest/
 touch /var/tmp/qstat_cache_vdttest/pbs_status.debug
 touch /var/tmp/slurm_cache_vdttest/slurm_status.debug
 
