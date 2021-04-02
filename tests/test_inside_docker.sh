@@ -3,6 +3,9 @@
 OS_VERSION=$1
 BUILD_ENV=$2
 
+# Pre-create test user for chowns
+useradd -m vdttest
+
 # Source repo version
 git clone https://github.com/opensciencegrid/osg-test.git
 pushd osg-test
