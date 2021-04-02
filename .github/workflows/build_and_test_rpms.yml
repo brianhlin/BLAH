@@ -69,7 +69,9 @@ jobs:
         if: failure() && steps.integration-tests.outcome == 'failure'
         run: |
           docker exec $GITHUB_SHA \
-                 /bin/bash -c "cat /var/log/slurm/*"
+                 /bin/bash -c \
+                   "cat /var/log/slurm/* && \
+                    cat /var/tmp/slurm_cache_vdttest/slurm_status.log"
 
       - name: HTCondor-CE logs
         if: failure() && steps.integration-tests.outcome == 'failure'
