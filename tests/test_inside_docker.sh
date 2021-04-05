@@ -8,8 +8,9 @@ BUILD_ENV=$2
 useradd -m vdttest
 
 # Source repo version
-git clone https://github.com/opensciencegrid/osg-test.git
+git clone https://github.com/brianhlin/osg-test.git
 pushd osg-test
+git checkout dump-ce-held-job-reasons
 git rev-parse HEAD
 make install
 popd
