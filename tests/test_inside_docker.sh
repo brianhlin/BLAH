@@ -4,8 +4,9 @@ OS_VERSION=$1
 BUILD_ENV=$2
 
 # Source repo version
-git clone https://github.com/opensciencegrid/osg-test.git
+git clone https://github.com/brianhlin/osg-test.git
 pushd osg-test
+git checkout separate-user-cert-generation
 git rev-parse HEAD
 make install
 popd
