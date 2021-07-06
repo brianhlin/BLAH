@@ -1,8 +1,11 @@
-blahp (2.1.0-0.rc1) unstable; urgency=medium
+blahp (2.1.0-1) stable; urgency=medium
 
-  * Various
+  * Fix bug where GPU request was not passed onto the batch script
+  * Fix problem where proxy symlinks were not cleaned up by not creating them
+  * Fix bug where output files are overwritten if no transfer output remap
+  * Added support for passing in extra submit arguments from the job ad
 
- -- Tim Theisen <tim@cs.wisc.edu>  Tue, 15 Jun 2021 09:19:43 -0500
+ -- Tim Theisen <tim@cs.wisc.edu>  Mon, 06 Jul 2021 09:52:14 -0500
 
 blahp (2.0.2-1) stable; urgency=medium
 

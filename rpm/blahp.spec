@@ -8,7 +8,7 @@
 
 Name:		blahp
 Version:	2.1.0
-Release:	0.rc1%{?gitrev:.%{gitrev}}%{?dist}
+Release:	1%{?gitrev:.%{gitrev}}%{?dist}
 Summary:	gLite BLAHP daemon
 
 Group:		System/Libraries
@@ -108,6 +108,12 @@ fi
 %{_initrddir}/glite-ce-*
 
 %changelog
+* Mon Jul 06 2021 Tim Theisen <tim@cs.wisc.edu> 2.1.0-1
+- Fix bug where GPU request was not passed onto the batch script
+- Fix problem where proxy symlinks were not cleaned up by not creating them
+- Fix bug where output files are overwritten if no transfer output remap
+- Added support for passing in extra submit arguments from the job ad
+
 * Wed Apr 28 2021 Tim Theisen <tim@cs.wisc.edu> 2.0.2-1
 - Fix periodic remove expression, otherwise jobs go on hold
 
